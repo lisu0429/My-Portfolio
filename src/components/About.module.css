@@ -1,0 +1,492 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 480px) minmax(0, 1fr);
+  gap: clamp(48px, 6vw, 110px);
+  align-items: start;
+}
+
+.portrait {
+  margin: 0;
+  position: relative;
+}
+
+.sideLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--text-3);
+  writing-mode: vertical-rl;
+  position: absolute;
+  left: -34px;
+  top: 4px;
+}
+
+.frame {
+  position: relative;
+  padding: 13px;
+  border: 1px solid var(--glass-line);
+  background: var(--glass);
+  backdrop-filter: blur(20px) saturate(1.1);
+  -webkit-backdrop-filter: blur(20px) saturate(1.1);
+  box-shadow: var(--glass-shadow);
+  transition: border-color 0.6s var(--ease), box-shadow 0.6s var(--ease);
+}
+
+.frame:hover {
+  border-color: var(--accent-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 40px 80px -50px rgba(0, 0, 0, 1),
+    0 0 60px -30px rgba(169, 222, 232, 0.5);
+}
+
+/* 证件挂带：卡片挂在带子上，可拖拽 / 点击翻面 */
+.lanyardStage {
+  position: relative;
+  width: 100%;
+  height: 600px;
+}
+
+/* 组件自带 .lanyard{height:100%}，这里必须压过它，否则容器高度塌陷 */
+.lanyardStage :global(.lanyard) {
+  height: 100%;
+  background: radial-gradient(72% 52% at 50% 18%, rgba(169, 222, 232, 0.08), transparent 72%);
+}
+
+.lanyardFallback {
+  display: block;
+  width: 100%;
+  height: 600px;
+}
+
+/* 窄屏收掉多余留白，挂绳和卡片的相对关系不变 */
+@media (max-width: 760px) {
+  .lanyardStage,
+  .lanyardFallback {
+    height: 430px;
+  }
+}
+
+.corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--accent);
+  opacity: 0.75;
+  transition: opacity 0.6s var(--ease);
+}
+
+.frame:hover .corner {
+  opacity: 1;
+}
+
+.cornerTl {
+  top: -1px;
+  left: -1px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.cornerTr {
+  top: -1px;
+  right: -1px;
+  border-left: 0;
+  border-bottom: 0;
+}
+
+.cornerBl {
+  bottom: -1px;
+  left: -1px;
+  border-right: 0;
+  border-top: 0;
+}
+
+.cornerBr {
+  bottom: -1px;
+  right: -1px;
+  border-left: 0;
+  border-top: 0;
+}
+
+.caption {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+.caption strong {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text);
+}
+
+/* 图幅坐标条 */
+.coord {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  color: var(--text-3);
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.paras {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-bottom: 34px;
+}
+
+.para {
+  font-size: clamp(15px, 1.05vw, 17px);
+  line-height: 2;
+  color: var(--text-2);
+  max-width: 70ch;
+  text-shadow: 0 2px 30px rgba(3, 6, 10, 0.95);
+}
+
+.contacts {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.contactRow {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--line);
+  transition: background-color 0.55s var(--ease);
+}
+
+.contactRow:hover {
+  background: linear-gradient(90deg, rgba(169, 222, 232, 0.06), transparent 65%);
+}
+
+.contactRow dt {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.contactRow dd {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.contactRow dd a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.45s var(--ease), text-shadow 0.45s var(--ease);
+}
+
+.contactRow dd a:hover {
+  color: var(--accent-hi);
+  text-shadow: 0 0 22px rgba(169, 222, 232, 0.6);
+}
+
+.contactRow dd a svg {
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: opacity 0.45s var(--ease), transform 0.45s var(--ease);
+}
+
+.contactRow dd a:hover svg {
+  opacity: 1;
+  transform: none;
+}
+
+.stats {
+  margin-top: clamp(64px, 7vw, 110px);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* StarBorder 根节点默认是按钮排版，这里改成数据面板。
+   用 .stats .stat 提高特异性，稳定压过 .star-border 的全局默认值。 */
+.stats .stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0;
+  padding: 30px 28px 26px;
+  font-weight: 400;
+  text-align: left;
+  transition: background-color 0.6s var(--ease);
+}
+
+.stats .stat:hover {
+  background: var(--glass);
+}
+
+.statValue {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 3.6vw, 60px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  color: var(--accent);
+  text-shadow: 0 0 34px rgba(169, 222, 232, 0.45);
+}
+
+.statLabel {
+  font-size: 14.5px;
+  color: var(--text);
+  margin-top: 8px;
+}
+
+.statTicks {
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.statNote {
+  font-size: 12.5px;
+  color: var(--text-3);
+  line-height: 1.7;
+}
+
+.timeline {
+  margin-top: clamp(72px, 7vw, 116px);
+}
+
+.subTitle {
+  font-size: 13px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+/* 剖面轴：一条带刻度的测量杆，站点用十字标记定位 */
+.transect {
+  position: relative;
+}
+
+.transect::before {
+  content: '';
+  position: absolute;
+  left: 23px;
+  top: 14px;
+  bottom: 14px;
+  width: 1px;
+  background-image: repeating-linear-gradient(
+    180deg,
+    rgba(220, 238, 248, 0.42) 0 6px,
+    transparent 6px 12px
+  );
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 10%, #000 90%, transparent);
+}
+
+.tlRow {
+  display: grid;
+  grid-template-columns: 46px 200px minmax(0, 320px) minmax(0, 1fr);
+  gap: 26px;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+  transition: background-color 0.6s var(--ease);
+}
+
+.tlRow:hover {
+  background: linear-gradient(90deg, rgba(169, 222, 232, 0.06), transparent 70%);
+}
+
+.tlStation {
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+  color: var(--accent);
+  transition: color 0.45s var(--ease), filter 0.45s var(--ease);
+}
+
+.tlRow:hover .tlStation {
+  color: var(--accent-hi);
+  filter: drop-shadow(0 0 8px rgba(169, 222, 232, 0.85));
+}
+
+.tlPeriod {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.tlMain {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tlMain strong {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.tlRole {
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.tlDetail {
+  color: var(--text-2);
+  font-size: 14.5px;
+  line-height: 1.9;
+  max-width: 62ch;
+}
+
+/* 极光带固定在视口顶部，落进这条带里的文字要靠投影才读得清 */
+.subTitle,
+.tlRole,
+.tlDetail,
+.toolsLabel,
+.toolsNote,
+.statNote {
+  text-shadow: 0 1px 18px rgba(3, 6, 10, 0.9);
+}
+
+.tools {
+  margin-top: clamp(56px, 6vw, 92px);
+}
+
+.toolsHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: clamp(18px, 2vw, 28px);
+}
+
+.toolsLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  flex: none;
+}
+
+.toolsNote {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--text-2);
+  max-width: 60ch;
+}
+
+/* 球体画布 */
+.globeFrame {
+  position: relative;
+  height: clamp(380px, 28vw, 480px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.globe {
+  width: 100%;
+  height: 100%;
+}
+
+/* 指针读数 */
+.globeHud {
+  position: absolute;
+  left: clamp(12px, 2vw, 28px);
+  bottom: clamp(14px, 2vw, 26px);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  pointer-events: none;
+}
+
+.hudLabel {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--text-3);
+}
+
+.hudValue {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+/* 能力簇图例 */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  margin-top: 18px;
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  color: var(--text-2);
+}
+
+.legendDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--dot);
+  box-shadow: 0 0 10px var(--dot);
+}
+
+.legendCount {
+  font-size: 10.5px;
+  color: var(--text-3);
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sideLabel {
+    display: none;
+  }
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .tlRow {
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 10px 16px;
+  }
+  .tlPeriod,
+  .tlMain,
+  .tlDetail {
+    grid-column: 2;
+  }
+  .tlStation {
+    grid-row: 1 / span 3;
+  }
+}
+

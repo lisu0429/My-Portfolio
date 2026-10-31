@@ -1,0 +1,19 @@
+.root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* 横向拖拽转球，纵向仍可正常滚页面 */
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.root:active {
+  cursor: grabbing;
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

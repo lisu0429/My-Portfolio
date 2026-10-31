@@ -1,0 +1,125 @@
+/* ==================================================================
+   测绘制图语言：等高线 / 标记 / 刻度 / 读数
+   与背景 <Topography /> 共用一套"地图"隐喻
+   ================================================================== */
+
+.root {
+  display: block;
+  width: 100%;
+}
+
+.rule {
+  height: var(--survey-rule-h, 44px);
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: var(--survey-line, var(--accent));
+  overflow: visible;
+}
+
+/* 等高线必须保持 1px 物理宽度，否则非等比缩放会把它拉成粗横带 */
+.svg path {
+  vector-effect: non-scaling-stroke;
+}
+
+/* ---- 十字测绘标记 ---- */
+
+.marker {
+  display: inline-block;
+  vertical-align: middle;
+  flex: none;
+  color: var(--accent);
+  opacity: 0.72;
+}
+
+.blink {
+  animation: surveyBlink 3.4s var(--ease-soft) infinite;
+}
+
+@keyframes surveyBlink {
+  0%,
+  62%,
+  100% {
+    opacity: 0.72;
+  }
+  70% {
+    opacity: 0.18;
+  }
+  78% {
+    opacity: 0.95;
+  }
+}
+
+/* ---- 高程刻度尺 ---- */
+
+.ticks {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 12px;
+}
+
+.ticks i {
+  width: 1px;
+  height: 5px;
+  background: var(--line-2);
+  transition: background-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+
+.ticks i[data-major] {
+  height: 11px;
+}
+
+.ticks i.on {
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(169, 222, 232, 0.75);
+}
+
+/* ---- 图幅规格读数 ---- */
+
+.readout {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0 20px;
+  margin: 0 0 18px;
+}
+
+.readoutItem {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+  padding-left: 20px;
+  border-left: 1px solid var(--line);
+}
+
+.readoutItem:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.readout dt {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.readout dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  opacity: 0.9;
+}

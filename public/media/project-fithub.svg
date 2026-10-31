@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="Space Grotesk, PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="960" height="600" fill="#0B0D10"/>
+  <rect x="0" y="0" width="960" height="36" fill="#0F1216"/>
+  <line x1="0" y1="36" x2="960" y2="36" stroke="#1C2127"/>
+  <circle cx="18" cy="18" r="3.5" fill="#2A3138"/><circle cx="30" cy="18" r="3.5" fill="#2A3138"/><circle cx="42" cy="18" r="3.5" fill="#2A3138"/>
+  <text x="56" y="22" fill="#C7CDD5" font-size="11">FitHub · 人工会话工作台</text>
+  <rect x="786" y="9" width="78" height="18" rx="2" fill="rgba(201,154,78,.14)"/>
+  <text x="825" y="21.5" text-anchor="middle" fill="#C99A4E" font-size="9">待接入 3</text>
+  <rect x="872" y="9" width="72" height="18" rx="2" fill="none" stroke="#242A31"/>
+  <text x="908" y="21.5" text-anchor="middle" fill="#8A929C" font-size="9">全链路 Trace</text>
+
+  <rect x="0" y="36" width="228" height="564" fill="#0D1014"/>
+  <line x1="228" y1="36" x2="228" y2="600" stroke="#1C2127"/>
+  <text x="14" y="62" fill="#646C77" font-size="8" letter-spacing="1.4">SESSION QUEUE</text>
+  <g font-size="9.5">
+    <rect x="12" y="74" width="204" height="46" rx="3" fill="#101317" stroke="rgba(201,154,78,.5)"/>
+    <circle cx="30" cy="94" r="9" fill="#2A3138"/>
+    <text x="46" y="92" fill="#ECEEF1">用户 #2217</text>
+    <text x="46" y="106" fill="#646C77" font-size="8">计划咨询 · 2 分钟前</text>
+    <rect x="152" y="82" width="56" height="15" rx="2" fill="rgba(201,154,78,.16)"/>
+    <text x="180" y="92.5" text-anchor="middle" fill="#C99A4E" font-size="8">接管中</text>
+    <rect x="12" y="128" width="204" height="46" rx="3" fill="#0F1216" stroke="#1C2127"/>
+    <circle cx="30" cy="148" r="9" fill="#2A3138"/>
+    <text x="46" y="146" fill="#C7CDD5">用户 #2205</text>
+    <text x="46" y="160" fill="#646C77" font-size="8">动作替代 · 5 分钟前</text>
+    <rect x="12" y="182" width="204" height="46" rx="3" fill="#0F1216" stroke="#1C2127"/>
+    <circle cx="30" cy="202" r="9" fill="#2A3138"/>
+    <text x="46" y="200" fill="#C7CDD5">用户 #2188</text>
+    <text x="46" y="214" fill="#646C77" font-size="8">饮食建议 · 9 分钟前</text>
+    <rect x="12" y="236" width="204" height="46" rx="3" fill="#0F1216" stroke="#1C2127"/>
+    <circle cx="30" cy="256" r="9" fill="#2A3138"/>
+    <text x="46" y="254" fill="#C7CDD5">用户 #2171</text>
+    <text x="46" y="268" fill="#646C77" font-size="8">训练打卡 · 12 分钟前</text>
+  </g>
+  <line x1="12" y1="300" x2="216" y2="300" stroke="#1C2127"/>
+  <text x="14" y="322" fill="#646C77" font-size="8" letter-spacing="1.4">ROUTE</text>
+  <g font-size="9">
+    <text x="14" y="344" fill="#98A0AB">user</text><text x="70" y="344" fill="#3A424B">→</text><text x="86" y="344" fill="#C7CDD5">自助 AI</text>
+    <text x="14" y="364" fill="#98A0AB">trainer</text><text x="70" y="364" fill="#3A424B">→</text><text x="86" y="364" fill="#C7CDD5">AI 优先 + 队列接管</text>
+    <text x="14" y="384" fill="#98A0AB">admin</text><text x="70" y="384" fill="#3A424B">→</text><text x="86" y="384" fill="#C7CDD5">模板审核 / 看板</text>
+  </g>
+
+  <rect x="228" y="36" width="412" height="564" fill="#0B0D10"/>
+  <line x1="640" y1="36" x2="640" y2="600" stroke="#1C2127"/>
+  <text x="248" y="62" fill="#C7CDD5" font-size="11">会话 #S-2049 · 训练计划咨询</text>
+  <text x="620" y="62" text-anchor="end" fill="#646C77" font-size="9">近 5 轮上下文 · Redis</text>
+  <line x1="248" y1="74" x2="620" y2="74" stroke="#1C2127"/>
+
+  <rect x="392" y="88" width="228" height="42" rx="8" fill="#161E28"/>
+  <text x="406" y="105" fill="#C7CDD5" font-size="10">深蹲总觉得膝盖内扣，</text>
+  <text x="406" y="120" fill="#C7CDD5" font-size="10">帮我改一下训练计划</text>
+
+  <rect x="248" y="142" width="330" height="128" rx="8" fill="#101317" stroke="#1C2127"/>
+  <text x="262" y="162" fill="#ECEEF1" font-size="10">动作库检索命中 3 个相似动作，可替换硬拉：</text>
+  <g font-size="9">
+    <rect x="262" y="174" width="98" height="52" rx="3" fill="#0C0F13" stroke="#242A31"/>
+    <text x="272" y="192" fill="#C7CDD5">杠铃深蹲</text>
+    <text x="272" y="207" fill="#646C77" font-size="8">股四头 · 核心</text>
+    <rect x="272" y="213" width="66" height="5" rx="2.5" fill="#1C2127"/><rect x="272" y="213" width="58" height="5" rx="2.5" fill="#C99A4E"/>
+    <rect x="368" y="174" width="98" height="52" rx="3" fill="#0C0F13" stroke="#242A31"/>
+    <text x="378" y="192" fill="#C7CDD5">高脚杯深蹲</text>
+    <text x="378" y="207" fill="#646C77" font-size="8">股四头 · 核心</text>
+    <rect x="378" y="213" width="66" height="5" rx="2.5" fill="#1C2127"/><rect x="378" y="213" width="44" height="5" rx="2.5" fill="#6C7A8A"/>
+    <rect x="474" y="174" width="98" height="52" rx="3" fill="#0C0F13" stroke="#242A31"/>
+    <text x="484" y="192" fill="#C7CDD5">箱式深蹲</text>
+    <text x="484" y="207" fill="#646C77" font-size="8">股四头 · 下肢</text>
+    <rect x="484" y="213" width="66" height="5" rx="2.5" fill="#1C2127"/><rect x="484" y="213" width="36" height="5" rx="2.5" fill="#6C7A8A"/>
+  </g>
+  <text x="262" y="246" fill="#646C77" font-size="8">来源：动作库子块 #ex_0587 · 置信 0.91 · 生成前动作 ID 校验通过</text>
+  <text x="262" y="262" fill="#646C77" font-size="8">检索：动作 RAG + 知识库 RAG 双管线并行</text>
+
+  <rect x="248" y="282" width="330" height="26" rx="4" fill="rgba(201,154,78,.1)" stroke="rgba(201,154,78,.3)"/>
+  <circle cx="264" cy="295" r="3" fill="#C99A4E"/>
+  <text x="276" y="299" fill="#C99A4E" font-size="9">已转人工 · 教练接管（AI 一键转人工）</text>
+
+  <rect x="392" y="320" width="228" height="42" rx="8" fill="rgba(201,154,78,.12)"/>
+  <text x="406" y="337" fill="#E3C08C" font-size="10">先把足间距放宽到肩宽 1.5 倍，</text>
+  <text x="406" y="352" fill="#E3C08C" font-size="10">再把组数降到 3×8 观察两周</text>
+
+  <rect x="248" y="524" width="372" height="36" rx="8" fill="#0C0F13" stroke="#242A31"/>
+  <text x="264" y="547" fill="#4B535D" font-size="10">输入回复，或让 AI 继续生成计划…</text>
+  <rect x="580" y="532" width="32" height="20" rx="4" fill="rgba(201,154,78,.18)"/>
+  <path d="M592 542h10M598 537l5 5-5 5" fill="none" stroke="#C99A4E" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="640" y="36" width="320" height="564" fill="#0D1014"/>
+  <text x="658" y="62" fill="#646C77" font-size="8" letter-spacing="1.4">USER PROFILE</text>
+  <g font-size="9.5">
+    <text x="658" y="86" fill="#8A929C">训练目标</text>
+    <text x="942" y="86" text-anchor="end" fill="#C7CDD5">减脂 · 增肌</text>
+    <line x1="658" y1="96" x2="942" y2="96" stroke="#1C2127"/>
+    <text x="658" y="116" fill="#8A929C">每周频次</text>
+    <text x="942" y="116" text-anchor="end" fill="#C7CDD5">4 天 · 四分化</text>
+    <line x1="658" y1="126" x2="942" y2="126" stroke="#1C2127"/>
+    <text x="658" y="146" fill="#8A929C">既有伤病</text>
+    <text x="942" y="146" text-anchor="end" fill="#C7CDD5">膝内扣</text>
+    <line x1="658" y1="156" x2="942" y2="156" stroke="#1C2127"/>
+  </g>
+  <text x="658" y="184" fill="#646C77" font-size="8" letter-spacing="1.4">AI CALL METRICS</text>
+  <g font-size="9">
+    <rect x="658" y="196" width="136" height="58" rx="3" fill="#101317" stroke="#1C2127"/>
+    <text x="670" y="214" fill="#646C77" font-size="8">首字耗时</text>
+    <text x="670" y="240" fill="#ECEEF1" font-size="17" font-weight="600">1.8s</text>
+    <rect x="806" y="196" width="136" height="58" rx="3" fill="#101317" stroke="#1C2127"/>
+    <text x="818" y="214" fill="#646C77" font-size="8">Token</text>
+    <text x="818" y="240" fill="#ECEEF1" font-size="17" font-weight="600">1240</text>
+    <rect x="658" y="262" width="136" height="58" rx="3" fill="#101317" stroke="#1C2127"/>
+    <text x="670" y="280" fill="#646C77" font-size="8">意图分类</text>
+    <text x="670" y="302" fill="#C7CDD5" font-size="12">计划咨询</text>
+    <rect x="806" y="262" width="136" height="58" rx="3" fill="#101317" stroke="#1C2127"/>
+    <text x="818" y="280" fill="#646C77" font-size="8">错误码</text>
+    <text x="818" y="302" fill="#C99A4E" font-size="12">0 · 无</text>
+  </g>
+  <text x="658" y="346" fill="#646C77" font-size="8" letter-spacing="1.4">BAD CASE</text>
+  <g font-size="9">
+    <text x="658" y="368" fill="#98A0AB">#A-113 动作 ID 非法</text>
+    <text x="942" y="368" text-anchor="end" fill="#646C77">已修复</text>
+    <line x1="658" y1="378" x2="942" y2="378" stroke="#1C2127"/>
+    <text x="658" y="398" fill="#98A0AB">#A-121 计划字段缺失</text>
+    <text x="942" y="398" text-anchor="end" fill="#646C77">已修复</text>
+    <line x1="658" y1="408" x2="942" y2="408" stroke="#1C2127"/>
+    <text x="658" y="428" fill="#98A0AB">#A-128 SSE 断连未止损</text>
+    <text x="942" y="428" text-anchor="end" fill="#C99A4E">已修复</text>
+  </g>
+  <rect x="658" y="452" width="284" height="76" rx="3" fill="rgba(201,154,78,.08)" stroke="rgba(201,154,78,.28)"/>
+  <text x="672" y="472" fill="#C99A4E" font-size="8.5">FULL TRACE</text>
+  <text x="672" y="490" fill="#8A929C" font-size="8">Query → 意图 → 检索 → 工具调用</text>
+  <text x="672" y="505" fill="#8A929C" font-size="8">→ 生成 → 持久化，按会话 ID 复现</text>
+  <text x="672" y="520" fill="#4B535D" font-size="8">异常降级链路全部落库，可定位</text>
+</svg>

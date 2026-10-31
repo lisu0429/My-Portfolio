@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" width="960" height="600" font-family="Space Grotesk, PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="960" height="600" fill="#0B0D10"/>
+  <rect x="0" y="0" width="960" height="36" fill="#0F1216"/>
+  <line x1="0" y1="36" x2="960" y2="36" stroke="#1C2127"/>
+  <circle cx="18" cy="18" r="3.5" fill="#2A3138"/><circle cx="30" cy="18" r="3.5" fill="#2A3138"/><circle cx="42" cy="18" r="3.5" fill="#2A3138"/>
+  <text x="56" y="22" fill="#C7CDD5" font-size="11">ERP 业务系统 · 发票管理模块</text>
+  <rect x="740" y="9" width="100" height="18" rx="2" fill="none" stroke="#242A31"/>
+  <text x="790" y="21.5" text-anchor="middle" fill="#98A0AB" font-size="9">流程梳理文档</text>
+  <rect x="848" y="9" width="96" height="18" rx="2" fill="rgba(201,154,78,.16)" stroke="rgba(201,154,78,.5)"/>
+  <text x="896" y="21.5" text-anchor="middle" fill="#C99A4E" font-size="9">保存草稿</text>
+
+  <rect x="30" y="56" width="420" height="330" rx="3" fill="#0F1216" stroke="#1C2127"/>
+  <text x="48" y="84" fill="#ECEEF1" font-size="12.5" font-weight="600">发票录入</text>
+  <text x="48" y="102" fill="#646C77" font-size="9">录入 → 校验 → 提交审批，业务规则由后端统一校验</text>
+  <text x="48" y="128" fill="#8A929C" font-size="9">客户名称</text>
+  <rect x="48" y="134" width="384" height="26" rx="2" fill="#0C0F13" stroke="#1C2127"/>
+  <text x="60" y="151" fill="#C7CDD5" font-size="10">深圳市某某贸易有限公司</text>
+  <text x="48" y="180" fill="#8A929C" font-size="9">纳税人识别号</text>
+  <rect x="48" y="186" width="180" height="26" rx="2" fill="#0C0F13" stroke="#1C2127"/>
+  <text x="60" y="203" fill="#C7CDD5" font-size="10">91440300MA5EX</text>
+  <text x="252" y="180" fill="#8A929C" font-size="9">发票类型</text>
+  <rect x="252" y="186" width="180" height="26" rx="2" fill="#0C0F13" stroke="#1C2127"/>
+  <text x="264" y="203" fill="#C7CDD5" font-size="10">增值税专用发票</text>
+  <text x="48" y="232" fill="#8A929C" font-size="9">价税合计</text>
+  <rect x="48" y="238" width="180" height="26" rx="2" fill="#0C0F13" stroke="#1C2127"/>
+  <text x="60" y="255" fill="#C7CDD5" font-size="10">¥ 128,600.00</text>
+  <text x="252" y="232" fill="#8A929C" font-size="9">物料 / 采购订单</text>
+  <rect x="252" y="238" width="180" height="26" rx="2" fill="#0C0F13" stroke="#1C2127"/>
+  <text x="264" y="255" fill="#C7CDD5" font-size="10">PO-2024-1187</text>
+  <line x1="48" y1="284" x2="432" y2="284" stroke="#1C2127"/>
+  <text x="48" y="308" fill="#8A929C" font-size="9">实时校验</text>
+  <g font-size="9.5">
+    <circle cx="54" cy="330" r="2.6" fill="#C99A4E"/><text x="64" y="333" fill="#98A0AB">税号格式校验 · 通过</text>
+    <circle cx="54" cy="352" r="2.6" fill="#C99A4E"/><text x="64" y="355" fill="#98A0AB">重复单据检测 · 未命中</text>
+    <circle cx="54" cy="374" r="2.6" fill="#B4553F"/><text x="64" y="377" fill="#98A0AB">采购订单金额不一致 · 待补充说明</text>
+  </g>
+
+  <rect x="470" y="56" width="460" height="330" rx="3" fill="#0F1216" stroke="#1C2127"/>
+  <text x="488" y="84" fill="#ECEEF1" font-size="12.5" font-weight="600">单据流转</text>
+  <text x="488" y="102" fill="#646C77" font-size="9">状态机与异常场景（重复单据 / 信息缺失 / 跨模块不一致）</text>
+  <line x1="504" y1="150" x2="896" y2="150" stroke="#242A31"/>
+  <circle cx="504" cy="150" r="5" fill="#C99A4E"/><circle cx="634" cy="150" r="5" fill="#C99A4E"/><circle cx="764" cy="150" r="5" fill="#1C2127" stroke="#3A424B"/><circle cx="894" cy="150" r="5" fill="#1C2127" stroke="#3A424B"/>
+  <text x="504" y="136" text-anchor="middle" fill="#E3C08C" font-size="9.5">录入</text>
+  <text x="634" y="136" text-anchor="middle" fill="#E3C08C" font-size="9.5">法务审批</text>
+  <text x="764" y="136" text-anchor="middle" fill="#8A929C" font-size="9.5">开票</text>
+  <text x="894" y="136" text-anchor="middle" fill="#8A929C" font-size="9.5">归档</text>
+  <text x="504" y="174" text-anchor="middle" fill="#646C77" font-size="8.5">已完成</text>
+  <text x="634" y="174" text-anchor="middle" fill="#646C77" font-size="8.5">待提交</text>
+  <text x="764" y="174" text-anchor="middle" fill="#646C77" font-size="8.5">未开始</text>
+  <text x="894" y="174" text-anchor="middle" fill="#646C77" font-size="8.5">未开始</text>
+  <line x1="488" y1="198" x2="912" y2="198" stroke="#1C2127"/>
+  <text x="488" y="222" fill="#646C77" font-size="8" letter-spacing="1.2">EXCEPTION SCENARIOS</text>
+  <g font-size="10">
+    <rect x="488" y="232" width="424" height="44" rx="2" fill="#0C0F13" stroke="#1C2127"/>
+    <rect x="488" y="232" width="1.6" height="44" fill="#C99A4E"/>
+    <text x="504" y="251" fill="#C7CDD5">重复单据</text>
+    <text x="504" y="267" fill="#646C77" font-size="8.5">同一订单号 + 相同金额的发票重复提交，入库前阻断并提示来源单据</text>
+    <rect x="488" y="284" width="424" height="44" rx="2" fill="#0C0F13" stroke="#1C2127"/>
+    <rect x="488" y="284" width="1.6" height="44" fill="#C99A4E"/>
+    <text x="504" y="303" fill="#C7CDD5">关键信息缺失</text>
+    <text x="504" y="319" fill="#646C77" font-size="8.5">税号、金额或物料字段为空时禁止提交，按缺失项逐条回显</text>
+    <rect x="488" y="336" width="424" height="44" rx="2" fill="#0C0F13" stroke="#1C2127"/>
+    <rect x="488" y="336" width="1.6" height="44" fill="#C99A4E"/>
+    <text x="504" y="355" fill="#C7CDD5">跨模块状态不一致</text>
+    <text x="504" y="371" fill="#646C77" font-size="8.5">物料审批已完成但发票未流转，回写至待办并通知对应业务人员</text>
+  </g>
+
+  <rect x="30" y="404" width="900" height="166" rx="3" fill="#0F1216" stroke="#1C2127"/>
+  <text x="48" y="432" fill="#ECEEF1" font-size="12.5" font-weight="600">业务规则摘要</text>
+  <text x="48" y="450" fill="#646C77" font-size="9">沉淀业务流程梳理文档，输出给功能验收与产品评审使用</text>
+  <g font-size="9.5">
+    <text x="48" y="478" fill="#8A929C">物料管理</text>
+    <text x="48" y="498" fill="#C7CDD5" font-size="10">物料档案维护与批次口径</text>
+    <text x="48" y="516" fill="#646C77" font-size="8.5">统一主数据口径，跨模块引用</text>
+    <text x="272" y="478" fill="#8A929C">法务审批</text>
+    <text x="272" y="498" fill="#C7CDD5" font-size="10">节点配置与流转条件</text>
+    <text x="272" y="516" fill="#646C77" font-size="8.5">按金额分级触发审批链路</text>
+    <text x="496" y="478" fill="#8A929C">发票票据</text>
+    <text x="496" y="498" fill="#C7CDD5" font-size="10">录入、校验与异常兜底</text>
+    <text x="496" y="516" fill="#646C77" font-size="8.5">阻断式校验，不静默通过</text>
+    <text x="720" y="478" fill="#C99A4E">AI 改造方向</text>
+    <text x="720" y="498" fill="#C7CDD5" font-size="10">票据 OCR + 单据信息提取</text>
+    <text x="720" y="516" fill="#646C77" font-size="8.5">人工录入耗时占比最高</text>
+  </g>
+  <rect x="720" y="466" width="1.6" height="60" fill="#C99A4E"/>
+</svg>

@@ -1,0 +1,161 @@
+.atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* ---- 雾带：横向漂移的柔光体 ---- */
+.band {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+  transform-origin: 50% 50%;
+}
+
+.band1 {
+  width: 78vw;
+  height: 62vh;
+  top: -16vh;
+  left: -14vw;
+  background: radial-gradient(
+    closest-side ellipse,
+    rgba(126, 178, 198, 0.26) 0%,
+    rgba(110, 158, 180, 0.14) 46%,
+    transparent 74%
+  );
+  filter: blur(38px);
+  animation: drift1 13s var(--ease-soft) infinite alternate;
+}
+
+.band2 {
+  width: 66vw;
+  height: 54vh;
+  top: 24vh;
+  right: -18vw;
+  background: radial-gradient(
+    closest-side ellipse,
+    rgba(214, 176, 138, 0.24) 0%,
+    rgba(180, 150, 120, 0.1) 48%,
+    transparent 76%
+  );
+  filter: blur(44px);
+  animation: drift2 11s var(--ease-soft) infinite alternate;
+}
+
+.band3 {
+  width: 92vw;
+  height: 46vh;
+  bottom: -12vh;
+  left: 6vw;
+  background: radial-gradient(
+    closest-side ellipse,
+    rgba(104, 152, 186, 0.22) 0%,
+    rgba(88, 132, 164, 0.12) 50%,
+    transparent 78%
+  );
+  filter: blur(50px);
+  animation: drift3 14s var(--ease-soft) infinite alternate;
+}
+
+.band4 {
+  width: 54vw;
+  height: 40vh;
+  top: 46vh;
+  left: 22vw;
+  background: radial-gradient(
+    closest-side ellipse,
+    rgba(168, 196, 214, 0.18) 0%,
+    transparent 70%
+  );
+  filter: blur(46px);
+  animation: drift1 12s var(--ease-soft) -4s infinite alternate-reverse;
+}
+
+/* ---- 朦胧光斑 ---- */
+.spot {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(26px);
+  mix-blend-mode: screen;
+}
+
+.spot1 {
+  width: 26vw;
+  height: 26vw;
+  top: 6vh;
+  right: 8vw;
+  background: radial-gradient(closest-side, rgba(168, 222, 236, 0.34), transparent 72%);
+  animation: breathe 14s ease-in-out infinite alternate;
+}
+
+.spot2 {
+  width: 18vw;
+  height: 18vw;
+  bottom: 12vh;
+  left: 12vw;
+  background: radial-gradient(closest-side, rgba(236, 196, 152, 0.24), transparent 72%);
+  animation: breathe 12s ease-in-out -3s infinite alternate-reverse;
+}
+
+.spot3 {
+  width: 12vw;
+  height: 12vw;
+  top: 44vh;
+  left: 58vw;
+  background: radial-gradient(closest-side, rgba(150, 206, 226, 0.22), transparent 70%);
+  animation: breathe 13s ease-in-out -6s infinite alternate;
+}
+
+.motes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 收尾页再叠一层更重的雾 */
+.page {
+  opacity: 0.9;
+}
+
+@keyframes drift1 {
+  0% {
+    transform: translate3d(-6%, 2%, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(7%, -5%, 0) scale(1.14);
+  }
+}
+
+@keyframes drift2 {
+  0% {
+    transform: translate3d(5%, -2%, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-8%, 4%, 0) scale(0.94);
+  }
+}
+
+@keyframes drift3 {
+  0% {
+    transform: translate3d(-4%, 4%, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(9%, -3%, 0) scale(1.12);
+  }
+}
+
+@keyframes breathe {
+  0% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.16);
+  }
+}
+
+

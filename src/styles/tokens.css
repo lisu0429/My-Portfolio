@@ -1,0 +1,71 @@
+/* Manrope 800 拉丁子集自托管：首屏名字不再等 Google Fonts CDN */
+@font-face {
+  font-family: 'Manrope Local';
+  src: url('/fonts/manrope-latin-800.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---- 底色：深蓝夜雾 ---- */
+  --bg: #070a0e;
+  --bg-elev: #0a0f15;
+  --bg-deep: #04060a;
+
+  /* ---- 雾面玻璃 ---- */
+  --glass: rgba(222, 240, 249, 0.042);
+  --glass-hi: rgba(222, 240, 249, 0.082);
+  --glass-line: rgba(222, 240, 249, 0.1);
+  --line: rgba(220, 238, 248, 0.1);
+  --line-2: rgba(220, 238, 248, 0.19);
+  --line-3: rgba(220, 238, 248, 0.3);
+
+  /* ---- 前景文字 ---- */
+  --text: #edf3f7;
+  --text-2: #9fb1bd;
+  --text-3: #66767f;
+
+  /* ---- 雾青（主） / 暖光（辅） ---- */
+  --accent: #a9dee8;
+  --accent-hi: #e2f6fa;
+  --accent-dim: rgba(169, 222, 232, 0.12);
+  --accent-line: rgba(169, 222, 232, 0.34);
+  --warm: #e8be96;
+  --warm-hi: #f7dfc6;
+  --warm-dim: rgba(232, 190, 150, 0.12);
+  --warm-line: rgba(232, 190, 150, 0.34);
+
+  /* ---- 雾层透明度档位 ---- */
+  --fog-1: 0.1;
+  --fog-2: 0.18;
+  --fog-3: 0.3;
+  --fog-4: 0.4;
+
+  /* ---- 版式 ---- */
+  --font-display: 'Space Grotesk', 'Noto Serif SC', 'Songti SC', serif;
+  --font-body: 'Space Grotesk', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --font-hero: 'Manrope Local', 'Manrope', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --font-name: 'Manrope Local', 'Manrope', 'Arial Black', 'Noto Sans SC', sans-serif;
+
+  /* ---- 测绘：等高线 / 标记 / 刻度 ---- */
+  --survey-line: rgba(184, 227, 237, 0.86);
+  --survey-rule-h: 44px;
+
+  /* ---- 尺度 ---- */
+  --shell: 1700px;
+  --gutter: clamp(32px, 4vw, 64px);
+  --radius: 3px;
+  --radius-lg: 8px;
+  --nav-h: 76px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.33, 0.9, 0.35, 1);
+
+  /* ---- 玻璃拟态 ---- */
+  --blur-glass: 22px;
+  --blur-heavy: 44px;
+  --glass-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055), 0 30px 70px -46px rgba(0, 0, 0, 0.95);
+}
+
+

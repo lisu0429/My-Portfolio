@@ -1,0 +1,507 @@
+.stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 580px;
+  gap: 48px;
+  align-items: start;
+}
+
+.swapCol {
+  position: relative;
+  min-width: 0;
+}
+
+.swap {
+  height: 700px;
+}
+
+/* ---- 卡面 ---- */
+.swapCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.swapCard img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: saturate(0.92) brightness(1.04);
+}
+
+.swapScrim {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 52% at 76% 20%, rgba(169, 222, 232, 0.12), transparent 70%),
+    linear-gradient(180deg, rgba(6, 9, 13, 0.5) 0%, rgba(6, 9, 13, 0.08) 30%, rgba(6, 9, 13, 0.7) 68%, rgba(6, 9, 13, 0.93) 100%);
+}
+
+/* 卡面等高线：让卡片内部和背景地形连成一体 */
+.swapContour {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.22;
+}
+
+.swapTop {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 28px;
+}
+
+.swapIndex {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  border: 1px solid var(--accent-line);
+  border-radius: var(--radius);
+  padding: 4px 10px;
+  background: rgba(8, 12, 17, 0.55);
+  backdrop-filter: blur(10px);
+}
+
+.swapKind,
+.swapPeriod {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.swapPeriod {
+  margin-left: auto;
+}
+
+.swapBottom {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 28px;
+}
+
+.swapTitle {
+  font-size: clamp(26px, 2.2vw, 38px);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #f2f7f9;
+  text-shadow: 0 2px 40px rgba(3, 6, 10, 0.9);
+}
+
+.swapMetrics {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.swapMetrics li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 7px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(222, 240, 249, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.swapMetrics b {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.swapMetrics span {
+  font-size: 11.5px;
+  color: var(--text-3);
+}
+
+/* ---- 控制条 ---- */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 18px;
+}
+
+.arrow {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: border-color 0.4s var(--ease), color 0.4s var(--ease),
+    background-color 0.4s var(--ease), transform 0.2s var(--ease);
+}
+
+.arrow:hover {
+  border-color: var(--accent-line);
+  color: var(--accent-hi);
+  background: var(--accent-dim);
+}
+
+.arrow:active {
+  transform: translateY(1px);
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  min-width: 44px;
+  height: 30px;
+  padding-inline: 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--text-3);
+  cursor: pointer;
+  transition: color 0.4s var(--ease), border-color 0.4s var(--ease),
+    background-color 0.4s var(--ease);
+}
+
+.dot:hover {
+  color: var(--text-2);
+  border-color: var(--line);
+}
+
+.dotOn {
+  color: var(--accent-hi);
+  border-color: var(--accent-line);
+  background: var(--accent-dim);
+}
+
+/* ---- 右侧详情 ---- */
+.detail {
+  position: relative;
+  min-width: 0;
+}
+
+.detailInner {
+  animation: fade 0.7s var(--ease) both;
+}
+
+.detailTop {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.detailIndex {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+}
+
+.detailKind,
+.detailPeriod {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.detailPeriod {
+  margin-left: auto;
+}
+
+.detailRule {
+  display: block;
+  margin-top: 16px;
+  --survey-rule-h: 44px;
+}
+
+.detailTitle {
+  margin-top: 22px;
+  font-size: clamp(26px, 2vw, 36px);
+  font-weight: 500;
+  letter-spacing: 0.035em;
+  text-shadow: 0 2px 40px rgba(3, 6, 10, 0.85);
+}
+
+.detailSummary {
+  margin-top: 16px;
+  color: var(--text-2);
+  font-size: 14.5px;
+  line-height: 1.95;
+  text-shadow: 0 1px 18px rgba(3, 6, 10, 0.9);
+}
+
+.resp {
+  margin-top: 26px;
+  border-top: 1px solid var(--line);
+}
+
+.resp li {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 18px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+  transition: background-color 0.55s var(--ease);
+}
+
+.resp li:hover {
+  background: linear-gradient(90deg, rgba(169, 222, 232, 0.05), transparent 70%);
+}
+
+.respTitle {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.respText {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--text-2);
+  /* 极光带正好压在这一列上方，靠投影把字从亮色里捞出来 */
+  text-shadow: 0 1px 18px rgba(3, 6, 10, 0.9);
+}
+
+.flow {
+  margin-top: 26px;
+}
+
+.flowLabel {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+
+/* 核心链路：一条测量杆，站点按顺序排布 */
+.flowList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4px;
+}
+
+.flowList::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 14px;
+  bottom: 14px;
+  width: 1px;
+  background-image: repeating-linear-gradient(
+    180deg,
+    rgba(220, 238, 248, 0.42) 0 5px,
+    transparent 5px 10px
+  );
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent);
+}
+
+.flowList li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 10px 30px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  padding: 7px 0;
+}
+
+.flowStation {
+  display: flex;
+  justify-content: center;
+  color: var(--accent);
+  transition: color 0.4s var(--ease), filter 0.4s var(--ease);
+}
+
+.flowIndex {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+}
+
+.flowName {
+  font-size: 13px;
+  color: var(--text-2);
+  transition: color 0.4s var(--ease);
+}
+
+.flowList li:hover .flowStation {
+  color: var(--accent-hi);
+  filter: drop-shadow(0 0 7px rgba(169, 222, 232, 0.85));
+}
+
+.flowList li:hover .flowName {
+  color: var(--text);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.tags li {
+  font-size: 12px;
+  color: var(--text-3);
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition: color 0.4s var(--ease), border-color 0.4s var(--ease),
+    background-color 0.4s var(--ease);
+}
+
+.tags li:hover {
+  color: var(--accent-hi);
+  border-color: var(--accent-line);
+  background: var(--accent-dim);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 1400px) {
+  .stage {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+  .swap {
+    height: 700px;
+  }
+}
+
+@media (max-width: 900px) {
+  .swap {
+    height: 520px;
+  }
+}
+
+/* ---- GitHub 源码链接 ---- */
+.repo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 26px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--glass);
+  backdrop-filter: blur(14px) saturate(1.1);
+  transition: border-color 0.45s var(--ease), background-color 0.45s var(--ease),
+    box-shadow 0.45s var(--ease), transform 0.2s var(--ease);
+}
+
+.repo:hover {
+  border-color: var(--accent-line);
+  background: var(--glass-hi);
+  box-shadow: 0 16px 40px -26px rgba(169, 222, 232, 0.9);
+}
+
+.repo:active {
+  transform: translateY(1px);
+}
+
+.repoIcon {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--text-2);
+  transition: color 0.45s var(--ease), border-color 0.45s var(--ease),
+    background-color 0.45s var(--ease);
+}
+
+.repo:hover .repoIcon {
+  color: var(--accent-hi);
+  border-color: var(--accent-line);
+  background: var(--accent-dim);
+}
+
+.repoText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.repoText b {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text);
+  transition: color 0.45s var(--ease);
+}
+
+.repo:hover .repoText b {
+  color: var(--accent-hi);
+}
+
+.repoText span {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.02em;
+  color: var(--text-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.repoArrow {
+  flex: none;
+  margin-left: auto;
+  color: var(--text-3);
+  transition: transform 0.4s var(--ease), color 0.4s var(--ease);
+}
+
+.repo:hover .repoArrow {
+  color: var(--accent-hi);
+  transform: translateX(3px);
+}
+

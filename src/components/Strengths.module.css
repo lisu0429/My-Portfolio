@@ -1,0 +1,225 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  grid-column: span 2;
+  min-height: 268px;
+  padding: 32px 32px 30px;
+  border: 1px solid var(--glass-line);
+  background: var(--glass);
+  backdrop-filter: blur(var(--blur-glass)) saturate(1.1);
+  -webkit-backdrop-filter: blur(var(--blur-glass)) saturate(1.1);
+  box-shadow: var(--glass-shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.6s var(--ease), background-color 0.6s var(--ease),
+    box-shadow 0.6s var(--ease), transform 0.5s var(--ease);
+}
+
+.card:nth-child(4),
+.card:nth-child(5) {
+  grid-column: span 3;
+}
+
+/* 卡内缓慢游走的雾光 */
+.card::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  width: 70%;
+  height: 70%;
+  left: -14%;
+  top: -24%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(169, 222, 232, 0.12), transparent 72%);
+  filter: blur(30px);
+  pointer-events: none;
+  transform: translate3d(-6%, 4%, 0) scale(1);
+  transition: transform 1.4s var(--ease-soft), opacity 0.8s var(--ease);
+  animation: mist 13s var(--ease-soft) infinite alternate;
+}
+
+/* 卡内等高线地形：与背景同一套生成逻辑。
+   整片地形只压在卡片上半部，向下淡出，不与正文抢读。 */
+.contourField {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    rgba(0, 0, 0, 0.5) 30%,
+    transparent 62%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    rgba(0, 0, 0, 0.5) 30%,
+    transparent 62%
+  );
+}
+
+.contour {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  transition: opacity 0.7s var(--ease);
+}
+
+/* 指针点亮：与背景 hoverEffect="trace" 同构，
+   指针附近的那一圈等高线被照亮，其余保持低亮度 */
+.contourHot {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  -webkit-mask-image: radial-gradient(
+    280px circle at var(--mx, 50%) var(--my, 50%),
+    #000 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    transparent 74%
+  );
+  mask-image: radial-gradient(
+    280px circle at var(--mx, 50%) var(--my, 50%),
+    #000 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    transparent 74%
+  );
+  transition: opacity 0.55s var(--ease);
+}
+
+.card:hover .contour {
+  opacity: 0.2;
+}
+
+.card:hover .contourHot {
+  opacity: 0.95;
+}
+
+/* 卡头：编号标记 + 标尺 */
+.cardTop {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.cardTicks {
+  opacity: 0.45;
+  transition: opacity 0.5s var(--ease);
+}
+
+.card:hover .cardTicks {
+  opacity: 0.8;
+}
+
+.card:nth-child(even)::after {
+  background: radial-gradient(closest-side, rgba(232, 190, 150, 0.1), transparent 72%);
+  animation-duration: 15s;
+  animation-delay: -5s;
+}
+
+.card:hover {
+  border-color: var(--accent-line);
+  background: var(--glass-hi);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 44px 90px -60px rgba(0, 0, 0, 1),
+    0 0 90px -46px rgba(169, 222, 232, 0.85);
+  transform: translateY(-2px);
+}
+
+.card:hover::after {
+  opacity: 1.4;
+}
+
+.card:active {
+  transform: translateY(1px);
+}
+
+.index {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(169, 222, 232, 0.6);
+}
+
+.title {
+  position: relative;
+  z-index: 3;
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.text {
+  position: relative;
+  z-index: 3;
+  margin-top: 14px;
+  color: var(--text-2);
+  font-size: 14px;
+  line-height: 1.95;
+  flex: 1;
+}
+
+.tags {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 22px;
+}
+
+.tags li {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--text-3);
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  transition: color 0.45s var(--ease), border-color 0.45s var(--ease),
+    background-color 0.45s var(--ease);
+}
+
+.card:hover .tags li {
+  color: var(--text-2);
+  border-color: var(--line-2);
+}
+
+.card:hover .tags li:hover {
+  color: var(--accent-hi);
+  border-color: var(--accent-line);
+  background: var(--accent-dim);
+}
+
+@keyframes mist {
+  0% {
+    transform: translate3d(-8%, 6%, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(10%, -6%, 0) scale(1.24);
+  }
+}
+
+@media (max-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .card,
+  .card:nth-child(4),
+  .card:nth-child(5) {
+    grid-column: span 1;
+  }
+}

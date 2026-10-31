@@ -1,0 +1,40 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  /* 透明度由 AuroraLayer 按滚动进度直接写进 style，这里只兜一个初值 */
+  opacity: 0;
+  /* 上下淡出，让极光在板块之间自然换气 */
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 30%,
+    rgba(0, 0, 0, 0.42) 56%,
+    transparent 88%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    #000 0%,
+    #000 30%,
+    rgba(0, 0, 0, 0.42) 56%,
+    transparent 88%
+  );
+}
+
+/* 极光之上压一层深色雾：和 Hero 的 haze 同一套思路，
+   让极光有颜色但不把浅色正文吃掉 */
+.layer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 10, 14, 0.1) 0%,
+    rgba(6, 10, 14, 0.34) 34%,
+    rgba(6, 10, 14, 0.72) 70%,
+    rgba(6, 10, 14, 0.92) 100%
+  );
+}
+
